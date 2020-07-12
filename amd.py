@@ -7,7 +7,7 @@ ENDIANNESS = 'little'
 
 #checks if there are any files
 if input_files == []:
-    input("No files detected. You need to drag and drop the file.\nPress any key to continue.")
+    input("No files detected. You need to drag and drop the file(s).\nPress any key to continue.")
     quit()
 
 #saves new file
