@@ -31,9 +31,9 @@ def load_file(input_files):
 
 #adds the amd header
 def add_header(binary_data, input_files, num_bytes):
-    binary_data[0x0:0x0] = bytearray([0]*31)
-    binary_data[0x0:0x1B] = bytearray(b'CHNK\x01\x00\x00\x00MODEL_DATA\x00\x00\x00\x00\x00\x00\x01\x01\x00')
-    binary_data[0x1C:0x1F] = num_bytes.to_bytes(4, byteorder=ENDIANNESS)
+    binary_data[0x0:0x0] = bytearray(b'CHNK\x01\x00\x00\x00MODEL_DATA\x00\x00\x00\x00\x00\x00\x01\x01\x00\x00')
+    #adds the gmo's size to amd's header
+    binary_data[0x1C:0x1C] = num_bytes.to_bytes(4, byteorder=ENDIANNESS)
     save_files(input_files, binary_data)
 
 #loads each file
