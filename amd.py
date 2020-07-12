@@ -8,7 +8,7 @@ ENDIANNESS = 'little'
 #checks if there are any files
 if input_files == []:
     input("No files detected. You need to drag and drop the file(s).\nPress any key to continue.")
-    quit()
+    sys.exit()
 
 #saves new file
 def save_files(input_files, binary_data):
@@ -19,7 +19,7 @@ def save_files(input_files, binary_data):
 def file_check(input_files):
     if not binary_data[0x00:0x04].decode().strip('\x00') == 'OMG.':
         input("Not a valid gmo file.\nPress any key to continue.")
-        quit()
+        sys.exit()
 #loads the file
 def load_file(input_files):
     global binary_data
